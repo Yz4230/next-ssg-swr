@@ -35,6 +35,16 @@ const config = {
   rules: {
     // disable `@next/next/no-img-element` to use `<img>` elements
     "@next/next/no-img-element": "off",
+    // disable `jsx-a11y/anchor-is-valid` to use `next/link`
+    // see https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/issues/402#issuecomment-368305051
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        components: ["Link"],
+        specialLink: ["hrefLeft", "hrefRight"],
+        aspects: ["invalidHref", "preferButton"],
+      },
+    ],
     "react/self-closing-comp": "error",
     "react/prop-types": "off",
     "import/order": [
